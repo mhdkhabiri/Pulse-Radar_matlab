@@ -9,7 +9,7 @@ t = 0: time_step: 10*PRI - time_step;
 
 T_signal = SignalProcess(0, t, pulse_width, PRI);
 R_signal = SignalProcess(N_shift, t, pulse_width, PRI);
-% ADC_signal = Sampling(R_signal, t, Ts, time_step);
+ADC_signal = Sampling(R_signal, t, Ts, time_step);
 
 
 subplot(2, 1, 1)
@@ -19,10 +19,11 @@ title('transfer signal'), xlabel('time'), ylabel('amplitude');
 subplot(2, 1, 2)
 plot(t, R_signal);
 title('receiver signal'), xlabel('time'), ylabel('amplitude');
- 
-% subplot(3, 1, 3)
-% plot(t, ADC_signal)
-% title('sampling signal'), xlabel('time'), ylabel('amplitude');
+
+
+subplot(3, 1, 3)
+plot(t, ADC_signal)
+title('sampling signal'), xlabel('time'), ylabel('amplitude');
 
 
 function [signal] = SignalProcess ( N, t, pulse_width, PRI)
